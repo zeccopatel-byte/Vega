@@ -289,7 +289,12 @@ export default function TeamPage() {
         
         <div className="relative z-10 w-[95%] md:w-[85%] max-w-6xl flex flex-col gap-4 mt-8 md:mt-16">
           {/* Foreground clear image container */}
-          <div className="w-full aspect-[4/3] md:aspect-[21/9] rounded-xl overflow-hidden relative flex items-center justify-center shadow-2xl">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="w-full aspect-[4/3] md:aspect-[21/9] rounded-xl overflow-hidden relative flex items-center justify-center shadow-2xl"
+          >
             <div 
               className="absolute inset-0 bg-cover bg-[center_20%] bg-no-repeat scale-105"
               style={{ backgroundImage: `url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=2800')` }}
@@ -318,16 +323,21 @@ export default function TeamPage() {
                 </h1>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Bottom text overlay */}
-          <div className="flex justify-between items-start text-[10px] md:text-[11px] text-white font-medium px-1">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex justify-between items-start text-[10px] md:text-[11px] text-white font-medium px-1"
+          >
             <div className="drop-shadow-md">(Our Studio)</div>
             <div className="max-w-[200px] text-center text-white/90 leading-relaxed drop-shadow-md">
               One part-time creative dedicated to<br/>your continuous stream of projects.
             </div>
             <div className="drop-shadow-md">© 2025</div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -412,7 +422,13 @@ export default function TeamPage() {
       </section>
 
       {/* Team Slider Section */}
-      <section className="min-h-screen flex flex-col md:flex-row relative font-sans w-full">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-10%" }}
+        transition={{ duration: 0.8 }}
+        className="min-h-screen flex flex-col md:flex-row relative font-sans w-full"
+      >
         {/* Left Content (Details) */}
         <div className="w-full md:w-1/2 flex items-center justify-center md:justify-end p-8 md:pr-12 lg:pr-24 relative z-10 h-auto md:h-screen pt-32 pb-12 md:py-0">
         <div className="w-full max-w-lg relative h-full flex flex-col justify-center">
@@ -553,16 +569,28 @@ export default function TeamPage() {
           </button>
         </div>
       </div>
-      </section>
+      </motion.section>
       {/* Values Section */}
       <section className="min-h-screen relative flex flex-col justify-center font-sans px-8 md:px-24 py-32 z-10">
-        <h2 className="text-[20vw] md:text-[200px] leading-none font-medium tracking-tighter text-[#C8C8C8] md:absolute md:top-32 md:left-24">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="text-[20vw] md:text-[200px] leading-none font-medium tracking-tighter text-[#C8C8C8] md:absolute md:top-32 md:left-24"
+        >
           VALUES
-        </h2>
+        </motion.h2>
 
         <div className="flex flex-col gap-16 md:gap-32 mt-16 md:mt-48 w-full max-w-6xl mx-auto relative z-10">
           {/* Diverse Team */}
-          <div className="flex items-start gap-4 md:w-[500px] md:self-end">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8 }}
+            className="flex items-start gap-4 md:w-[500px] md:self-end"
+          >
              <svg width="24" height="150" viewBox="0 0 24 150" fill="none" className="hidden md:block flex-shrink-0 mt-2 stroke-white/50" preserveAspectRatio="none">
                 <path d="M22 1 C15 1, 15 70, 5 75 C15 80, 15 149, 22 149" strokeWidth="1.5" />
              </svg>
@@ -580,10 +608,16 @@ export default function TeamPage() {
                   DIVERSE TEAM
                 </h3>
              </div>
-          </div>
+          </motion.div>
 
           {/* Out of the box */}
-          <div className="flex items-start gap-4 md:w-[500px] md:self-start md:ml-[10%]">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex items-start gap-4 md:w-[500px] md:self-start md:ml-[10%]"
+          >
              <svg width="24" height="150" viewBox="0 0 24 150" fill="none" className="hidden md:block flex-shrink-0 mt-2 stroke-white/50" preserveAspectRatio="none">
                 <path d="M22 1 C15 1, 15 70, 5 75 C15 80, 15 149, 22 149" strokeWidth="1.5" />
              </svg>
@@ -601,10 +635,16 @@ export default function TeamPage() {
                   OUT OF THE<br/>BOX THINKING
                 </h3>
              </div>
-          </div>
+          </motion.div>
 
           {/* Quality Relationship */}
-          <div className="flex items-start gap-4 md:w-[500px] md:self-end md:mr-[5%]">
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex items-start gap-4 md:w-[500px] md:self-end md:mr-[5%]"
+          >
              <svg width="24" height="150" viewBox="0 0 24 150" fill="none" className="hidden md:block flex-shrink-0 mt-2 stroke-white/50" preserveAspectRatio="none">
                 <path d="M22 1 C15 1, 15 70, 5 75 C15 80, 15 149, 22 149" strokeWidth="1.5" />
              </svg>
@@ -622,7 +662,7 @@ export default function TeamPage() {
                   QUALITY<br/>RELATIONSHIP
                 </h3>
              </div>
-          </div>
+          </motion.div>
           
 
         </div>
