@@ -1,0 +1,8 @@
+{
+  "name": "Art Loader",
+  "description": "A stylish loading screen with a grid-based image reveal animation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Oswald:wght@200;300;400;700&family=Caveat:wght@400;600&display=swap');
+@import "tailwindcss";
+
+@utility ticket-mask {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='16'%3E%3Cmask id='m'%3E%3Crect width='20' height='16' fill='white'/%3E%3Crect x='7' y='4' width='6' height='8' rx='1.5' fill='black'/%3E%3C/mask%3E%3Crect width='20' height='16' fill='black' mask='url(%23m)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='16'%3E%3Cmask id='m'%3E%3Crect width='20' height='16' fill='white'/%3E%3Crect x='7' y='4' width='6' height='8' rx='1.5' fill='black'/%3E%3C/mask%3E%3Crect width='20' height='16' fill='black' mask='url(%23m)'/%3E%3C/svg%3E"), linear-gradient(black, black);
+  mask-size: 20px 16px, 20px 16px, 100% calc(100% - 32px);
+  mask-position: top left, bottom left, center;
+  mask-repeat: repeat-x, repeat-x, no-repeat;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='16'%3E%3Cmask id='m'%3E%3Crect width='20' height='16' fill='white'/%3E%3Crect x='7' y='4' width='6' height='8' rx='1.5' fill='black'/%3E%3C/mask%3E%3Crect width='20' height='16' fill='black' mask='url(%23m)'/%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='16'%3E%3Cmask id='m'%3E%3Crect width='20' height='16' fill='white'/%3E%3Crect x='7' y='4' width='6' height='8' rx='1.5' fill='black'/%3E%3C/mask%3E%3Crect width='20' height='16' fill='black' mask='url(%23m)'/%3E%3C/svg%3E"), linear-gradient(black, black);
+  -webkit-mask-size: 20px 16px, 20px 16px, 100% calc(100% - 32px);
+  -webkit-mask-position: top left, bottom left, center;
+  -webkit-mask-repeat: repeat-x, repeat-x, no-repeat;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-oswald: "Oswald", ui-sans-serif, system-ui, sans-serif;
+  --font-handwriting: "Caveat", cursive;
+}
+

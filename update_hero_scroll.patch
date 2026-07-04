@@ -1,0 +1,17 @@
+--- src/App.tsx
++++ src/App.tsx
+@@ -292,6 +292,14 @@
+   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+   const [isMenuOpen, setIsMenuOpen] = useState(false);
+ 
++  const { scrollY } = useScroll();
++  const [isScrolled, setIsScrolled] = useState(false);
++  useEffect(() => {
++    return scrollY.on("change", (latest) => {
++      setIsScrolled(latest > 50);
++    });
++  }, [scrollY]);
++
+   const handleMouseMove = (e: React.MouseEvent) => {
+     const rect = e.currentTarget.getBoundingClientRect();
+     setMousePos({
