@@ -148,11 +148,15 @@ const SlideCard: React.FC<{
   project: { category: string; title1: string; title2: string; director: string; year: string; image?: string };
   onInteractiveEnter: () => void;
   onInteractiveLeave: () => void;
+  onPrev: () => void;
+  onNext: () => void;
 }> = ({ 
   videoSrc,
   project,
   onInteractiveEnter,
-  onInteractiveLeave
+  onInteractiveLeave,
+  onPrev,
+  onNext
 }) => {
   return (
     <div className="relative w-full h-full flex-shrink-0 text-white select-none">
@@ -190,7 +194,7 @@ const SlideCard: React.FC<{
           </div>
 
           <div className="flex items-center justify-center md:justify-start gap-4 mt-4 w-full md:w-auto">
-            <button className="relative w-[46px] h-[46px] group cursor-pointer transition-transform hover:scale-[1.02]">
+            <button onClick={onPrev} className="relative w-[46px] h-[46px] group cursor-pointer transition-transform hover:scale-[1.02]">
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <clipPath id={`arrow-left-clip-${project.title1}`}>
@@ -213,7 +217,7 @@ const SlideCard: React.FC<{
                 <span className="text-xl leading-none font-light mb-[2px] transform -translate-y-[1px] group-hover:-translate-x-1 transition-transform">←</span>
               </div>
             </button>
-            <button className="relative w-[46px] h-[46px] group cursor-pointer transition-transform hover:scale-[1.02]">
+            <button onClick={onNext} className="relative w-[46px] h-[46px] group cursor-pointer transition-transform hover:scale-[1.02]">
               <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <clipPath id={`arrow-right-clip-${project.title1}`}>
@@ -311,6 +315,18 @@ function Hero() {
     }
   };
 
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+  };
+
+  const handleNext = () => {
+    if (currentIndex < VIDEOS.length - 1) {
+      setCurrentIndex((prev) => prev + 1);
+    }
+  };
+
   return (
     <motion.div 
       key="hero"
@@ -384,6 +400,8 @@ function Hero() {
               project={PROJECTS[idx % PROJECTS.length]} 
               onInteractiveEnter={() => setIsInteractiveHovered(true)}
               onInteractiveLeave={() => setIsInteractiveHovered(false)}
+              onPrev={handlePrev}
+              onNext={handleNext}
             />
           ))}
         </motion.div>
@@ -456,7 +474,7 @@ function Hero() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="mt-[-8px] w-[260px] md:w-full bg-white text-black z-40 relative flex flex-col"
+              className="absolute top-[48px] right-0 w-[calc(100vw-3rem)] md:relative md:top-auto md:right-auto md:w-full md:mt-[-8px] bg-white text-black z-40 flex flex-col origin-top md:origin-top-right"
               style={{
                 WebkitMaskImage: `
                   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='16'%3E%3Cmask id='m'%3E%3Crect width='20' height='16' fill='white'/%3E%3Crect x='7' y='4' width='6' height='8' rx='1.5' fill='black'/%3E%3C/mask%3E%3Crect width='20' height='16' fill='black' mask='url(%23m)'/%3E%3C/svg%3E"),
@@ -475,18 +493,13 @@ function Hero() {
                   { num: '03', label: 'BOOK', to: '#' },
                   { num: '04', label: 'TEAM', to: '/team' },
                 ].map((item) => (
-                  <Link to={item.to} key={item.num} className="flex items-baseline gap-4 cursor-pointer hover:opacity-60 transition-opacity">
+                  <Link to={item.to} key={item.num} className="flex items-baseline gap-4 cursor-pointer hover:opacity-60 transition-opacity" onClick={() => setIsMenuOpen(false)}>
                     <span className="text-[10px] font-mono text-black/40">{item.num}</span>
                     <span className="text-3xl font-bold tracking-tighter uppercase">{item.label}</span>
                   </Link>
                 ))}
               </div>
 
-              <div className="border-t border-dashed border-black/30 w-full py-6 px-8 flex justify-between text-[9px] font-bold tracking-widest uppercase text-black/60">
-                <span className="cursor-pointer hover:text-black">COOKIE</span>
-                <span className="cursor-pointer hover:text-black">TERMS</span>
-                <span className="cursor-pointer hover:text-black">PRIVACY</span>
-              </div>
 
               <div className="border-t border-dashed border-black/30 w-full py-6 px-8 flex gap-6">
                 <Instagram className="w-5 h-5 cursor-pointer hover:opacity-60" />

@@ -233,7 +233,7 @@ export default function TeamPage() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="mt-[-8px] w-[260px] md:w-full bg-white text-black z-40 relative flex flex-col"
+            className="absolute top-[48px] right-0 w-[calc(100vw-3rem)] md:relative md:top-auto md:right-auto md:w-full md:mt-[-8px] bg-white text-black z-40 flex flex-col origin-top md:origin-top-right"
             style={{
               WebkitMaskImage: `
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='16'%3E%3Cmask id='m'%3E%3Crect width='20' height='16' fill='white'/%3E%3Crect x='7' y='4' width='6' height='8' rx='1.5' fill='black'/%3E%3C/mask%3E%3Crect width='20' height='16' fill='black' mask='url(%23m)'/%3E%3C/svg%3E"),
@@ -259,11 +259,6 @@ export default function TeamPage() {
               ))}
             </div>
 
-            <div className="border-t border-dashed border-black/30 w-full py-6 px-8 flex justify-between text-[9px] font-bold tracking-widest uppercase text-black/60">
-              <span className="cursor-pointer hover:text-black">COOKIE</span>
-              <span className="cursor-pointer hover:text-black">TERMS</span>
-              <span className="cursor-pointer hover:text-black">PRIVACY</span>
-            </div>
 
             <div className="border-t border-dashed border-black/30 w-full py-6 px-8 flex gap-6">
               <Instagram className="w-5 h-5 cursor-pointer hover:opacity-60" />
