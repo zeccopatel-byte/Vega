@@ -12,7 +12,7 @@ export default function AboutSection() {
   });
 
   // We'll split the text into words and animate opacity of each word
-  const text = "Egnis is a creative media studio that turns ideas into clear, engaging video content. We help brands communicate with purpose through thoughtful editing, storytelling, and reliable collaboration from first draft to final delivery.";
+  const text = "Vega is a creative media studio that turns ideas into clear, engaging video content. We help brands communicate with purpose through thoughtful editing, storytelling, and reliable collaboration from first draft to final delivery.";
   const words = text.split(" ");
 
   return (

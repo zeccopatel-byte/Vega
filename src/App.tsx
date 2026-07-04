@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
+
 import { ChevronDown, X, Instagram, Facebook, Linkedin } from 'lucide-react';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
@@ -500,6 +511,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AnimatePresence mode="wait">
         {!loadingComplete ? (
           <Loader key="loader" onComplete={() => setLoadingComplete(true)} />
