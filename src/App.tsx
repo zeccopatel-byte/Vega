@@ -321,7 +321,7 @@ function Hero() {
     >
       {/* Inner Rounded Rectangle */}
       <div 
-        className={`relative flex-1 w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#111] flex flex-col ${isInteractiveHovered ? '' : 'cursor-none'}`}
+        className={`relative flex-1 w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-[#111] flex flex-col ${isInteractiveHovered ? '' : 'md:cursor-none'}`}
         onMouseEnter={(e) => {
           setIsHovered(true);
           handleMouseMove(e);
@@ -333,7 +333,7 @@ function Hero() {
         <AnimatePresence>
           {isHovered && !isInteractiveHovered && (
             <motion.div
-              className="absolute z-50 pointer-events-none w-16 h-12 bg-transparent flex flex-col items-center justify-center shadow-2xl overflow-hidden"
+              className="hidden md:flex absolute z-50 pointer-events-none w-16 h-12 bg-transparent flex-col items-center justify-center shadow-2xl overflow-hidden"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ 
                 opacity: 1, 
